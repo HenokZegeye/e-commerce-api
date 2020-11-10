@@ -14,21 +14,21 @@ class ApplicationController < ActionController::API
 
     private
 
-      def authenticate
-        render json: { error: 'Unauthorized' }, status: 401 unless logged_in?
-      end
+    def authenticate
+      render json: { error: 'Unauthorized' }, status: 401 unless logged_in?
+    end
 
-      def token
-        return nil if request.env['HTTP_AUTHORIZATION'].nil?
+    def token
+      return nil if request.env['HTTP_AUTHORIZATION'].nil?
 
-        request.env['HTTP_AUTHORIZATION'].scan(/Bearer (.*)$/).flatten.last
-      end
-    
-      def auth
-        TokenAuthService.decode(token)
-      end
+      request.env['HTTP_AUTHORIZATION'].scan(/Bearer (.*)$/).flatten.last
+    end
+  
+    def auth
+      TokenAuthService.decode(token)
+    end
 
-      def auth_present?
-        !token.nil?
-      end
+    def auth_present?
+      !token.nil?
+    end
 end
