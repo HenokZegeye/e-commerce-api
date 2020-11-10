@@ -1,0 +1,3 @@
+MONGO_USER=mongo
+MONGO_PASSWORD=
+MONGO_DB=e_commerce_development

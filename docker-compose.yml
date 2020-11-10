@@ -1,0 +1,27 @@
+version: '3'
+
+volumes:
+  db_data: {}
+
+services:
+  db:
+    image: mongo
+    env_file:
+      - .env/development/db
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: bundle exec rails s -b 0.0.0.0
+    env_file:
+      - .env/development/db
+      - .env/development/app
+    volumes:
+      - .:/opt/app
+    ports:
+      - 3000:3000
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
