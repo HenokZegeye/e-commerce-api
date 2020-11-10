@@ -8,4 +8,6 @@ class Item
   field :description, type: String
   field :vendor_name, type: String
   has_many :cart_item
+  
+  mount_base64_uploader :photo, PhotoUploader
 end
