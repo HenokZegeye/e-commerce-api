@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   
   # GET /items
   def index
-    @items = Item.all
+    @items = Item.all.asc(:price)
 
     render json: @items
   end
