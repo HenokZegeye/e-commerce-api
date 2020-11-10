@@ -1,0 +1,4 @@
+RAILS_ENV=development
+DATABASE_HOST=db
+UPLOAD_PREFIX=/opt/app/public/
+RAILS_SERVE_STATIC_FILES=true
