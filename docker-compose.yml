@@ -6,17 +6,15 @@ volumes:
 services:
   db:
     image: mongo
-    env_file:
-      - .env/development/db
+    container_name: 'mongo-container'
+    ports:
+      - '27017:27017'
 
   app:
     build:
       context: .
       dockerfile: docker/Dockerfile
     command: bundle exec rails s -b 0.0.0.0
-    env_file:
-      - .env/development/db
-      - .env/development/app
     volumes:
       - .:/opt/app
     ports:
