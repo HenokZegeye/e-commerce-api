@@ -18,7 +18,7 @@ services:
     volumes:
       - .:/opt/app
     ports:
-      - 3000:3000
+      - 5000:3000
     stdin_open: true
     tty: true
     depends_on:
