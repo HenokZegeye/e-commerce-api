@@ -1,17 +1,15 @@
 development:
   clients:
     default:
-      database: <%= ENV['MONGO_DB'] %>
+      database: e_commerce_development
       hosts:
-        - <%= ENV['DATABASE_HOST'] %>:27017
-      options:
-        server_selection_timeout: 1
+        - db:27017
 test:
   clients:
     default:
       database: e_commerce_test
       hosts:
-        - localhost:27017
+        - db:27017
       options:
         read:
           mode: :primary
